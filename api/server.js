@@ -17,9 +17,12 @@ const Item = require("./models/Item");
 
 // GET ALL ITEMS
 app.get("/items", async (req, res) => {
-  const items = await Item.find();
-
-  res.json(items);
+  try {
+    const items = await Item.find();
+    res.json(items);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // ADD NEW ITEM

@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hi Vi-Linh!</h1>
+      <h1>Hi Y/N!</h1>
       <h4>Your WishList</h4>
       <div className="wishlist">
         {items.map((item) => (
