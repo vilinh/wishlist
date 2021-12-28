@@ -13,14 +13,16 @@
   display: flex;
   align-items: center;
   transition: 0.5s;
-  cursor: pointer;
   color: var(--dark);
   justify-content: space-between;
 }
 
 .item .checkbox {
   margin-right: 13px;
-  transition: 0.4s;
+  transition: 0.5s;
+}
+.item .checkbox:hover {
+  cursor: pointer;
 }
 
 .item .checkbox span {

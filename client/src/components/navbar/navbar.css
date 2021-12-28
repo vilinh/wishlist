@@ -1,0 +1,35 @@
+.navbar {
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+}
+
+.navbar .left-logo h3{
+  text-transform: none;
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.navbar li {
+  list-style-type: none;
+  border: solid 1px #fff;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+.navbar li:hover {
+  background-color: #fff;
+  color: var(--dark);
+}
+.navbar .right {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
