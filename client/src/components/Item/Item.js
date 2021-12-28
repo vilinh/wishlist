@@ -51,7 +51,8 @@ export default function Item({ item, setItems }) {
         <div className="basic">
           <div className="item-left">
             <div className="checkbox" onClick={() => buyItem(item._id)}>
-              <i className="fa-regular fa-circle-check"></i>{" "}
+              <i className="regular fa-regular fa-circle-check"></i>
+              <span><i className="fa-solid fa-circle-check"></i></span>
             </div>
             <div className="item-name">{item.itemName}</div>
           </div>

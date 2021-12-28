@@ -5,6 +5,7 @@
   padding: 16px;
   border-radius: 5px;
   margin-bottom: 16px;
+  transition: 0.4s;
 }
 
 .basic {
@@ -22,12 +23,17 @@
   transition: 0.4s;
 }
 
+.item .checkbox span {
+  display: none;
+}
 .item.bought {
   opacity: 0.8;
-
 }
-.item.bought .checkbox {
-  color: var(--primary);
+.item.bought .regular {
+  display: none;
+}
+.item.bought .checkbox span {
+  display: inline-block;
 }
 
 .item .checkbox:hover {
