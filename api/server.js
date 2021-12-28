@@ -15,50 +15,58 @@ mongoose
 
 const Item = require("./models/Item");
 
-app.get('/items', async (req, res) => {
-    const items = await Item.find();
+// GET ALL ITEMS
+app.get("/items", async (req, res) => {
+  const items = await Item.find();
 
-    res.json(items);
-})
+  res.json(items);
+});
 
-app.post('/item/new', async (req, res) => {
-    const item = new Item({
-        itemName: req.body.itemName
-    });
-
-    item.save();
-
+// ADD NEW ITEM
+app.post("/item/new", async (req, res) => {
+  const item = new Item({
+    itemName: req.body.itemName,
+  });
+  try {
+    await item.save();
     res.json(item);
-})
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-app.delete('/item/delete/:id', async (req, res) => {
-    const result = await Item.findByIdAndDelete(req.params.id);
+//DELETE ITEM
+app.delete("/item/delete/:id", async (req, res) => {
+  const result = await Item.findByIdAndDelete(req.params.id);
 
-    res.json(result)
-})
+  res.json(result);
+});
 
-app.put('/item/bought/:id', async (req, res) => {
-    const item = await Item.findById(req.params.id);
-    item.bought = !item.bought;
+// UPDATE ITEM AS BOUGHT/NOT BOUGHT
+app.put("/item/bought/:id", async (req, res) => {
+  const item = await Item.findById(req.params.id);
+  item.bought = !item.bought;
 
-    item.save();
-    res.json(item);
-})
+  item.save();
+  res.json(item);
+});
 
-app.put('/item/increment/:id', async (req, res) => {
-    const item = await Item.findById(req.params.id);
-    item.quantity += 1;
+// INCREMENT QUANTITY OF ITEM
+app.put("/item/increment/:id", async (req, res) => {
+  const item = await Item.findById(req.params.id);
+  item.quantity += 1;
 
-    item.save();
-    res.json(item);
-})
+  item.save();
+  res.json(item);
+});
 
-app.put('/item/decrement/:id', async (req, res) => {
-    const item = await Item.findById(req.params.id);
-    item.quantity -= 1;
+// DECREMENT QUANTITY OF ITEM
+app.put("/item/decrement/:id", async (req, res) => {
+  const item = await Item.findById(req.params.id);
+  item.quantity -= 1;
 
-    item.save();
-    res.json(item);
-})
+  item.save();
+  res.json(item);
+});
 
-app.listen(3001, () => console.log("Server started on port 3001"))
+app.listen(3001, () => console.log("Server started on port 3001"));

@@ -23,4 +23,4 @@ PUT http://localhost:3001/item/increment/61ca664f7176359ca47485a8
 
 ###
 
-PUT http://localhost:3001/item/decrement/61ca664f7176359ca47485a8
+PUT http://localhost:3001/item/decrement/61ca66557176359ca47485aa
