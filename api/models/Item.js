@@ -17,6 +17,10 @@ const ItemSchema = new Schema({
     quantity: {
         type: Number,
         default: 1,
+    },
+    category: {
+        type: String,
+        default: "Unclassified"
     }
 })
 
