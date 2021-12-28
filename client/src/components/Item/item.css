@@ -1,0 +1,81 @@
+.item {
+  position: relative;
+  background-color: var(--light);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+
+.item .checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  border-radius: 999px;
+  background-color: var(--dark-alt);
+  transition: 0.4s;
+}
+
+.item.bought .checkbox {
+  background-color: var(--primary);
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.item .checkbox:hover {
+    opacity: 0.8;
+}
+
+.item .item-name {
+  font-size: 20px;
+}
+
+.item.bought .item-name {
+  text-decoration: line-through;
+}
+
+.item .quantity {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.item .quantity .minus,
+.item .quantity .add {
+    font-size: 15px;;
+    background-color: var(--dark-alt);
+    color: #fff;
+    padding: 5px;
+    border-radius: 999px;
+}
+
+.item .quantity .minus:hover,
+.item .quantity .add:hover {
+    opacity: 0.9;
+}
+
+.item .delete-item {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+
+  font-size: 20px;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

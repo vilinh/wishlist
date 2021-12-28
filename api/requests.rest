@@ -1,0 +1,18 @@
+GET http://localhost:3001/items
+
+###
+
+POST http://localhost:3001/item/new
+Content-Type: application/json
+
+{
+    "itemName": "Jeans"
+}
+
+###
+
+DELETE http://localhost:3001/item/delete/61ca2cb50603f551e0ba750b
+
+###
+
+PUT http://localhost:3001/item/bought/61ca2c850603f551e0ba7507

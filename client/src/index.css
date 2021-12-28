@@ -1,0 +1,43 @@
+
+:root {
+	--primary: #52796f;
+	--secondary: #84a98c;
+	--light: #e3e7e1;
+	--light-alt: #cad2c5;
+	--dark: #2f3e46;
+	--dark-alt: #354f52;
+  --red: #e63946;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background-color: var(--dark-alt);
+  color: var(--light);
+}
+
+.App {
+  padding: 40px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+h4 {
+  font-size: 18px;
+  color:var(--light-alt);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+
+
