@@ -45,4 +45,20 @@ app.put('/item/bought/:id', async (req, res) => {
     res.json(item);
 })
 
+app.put('/item/increment/:id', async (req, res) => {
+    const item = await Item.findById(req.params.id);
+    item.quantity += 1;
+
+    item.save();
+    res.json(item);
+})
+
+app.put('/item/decrement/:id', async (req, res) => {
+    const item = await Item.findById(req.params.id);
+    item.quantity -= 1;
+
+    item.save();
+    res.json(item);
+})
+
 app.listen(3001, () => console.log("Server started on port 3001"))
