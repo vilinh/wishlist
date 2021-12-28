@@ -10,7 +10,7 @@ export default function AddItem({ setAddActive, setNewItem, newItem, setItems, i
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                itemName: newItem
+                itemName: newItem,
             })
         }).then(res => res.json());
         
@@ -22,7 +22,7 @@ export default function AddItem({ setAddActive, setNewItem, newItem, setItems, i
   return (
     <div className="additem">
         <div className="closeAddItem"onClick={() => setAddActive(false)}>
-            <i className="far fa-window-close"></i>
+            <i className="fas fa-window-close"></i>
         </div>
       <div className="content">
         <h3>Add Item</h3>

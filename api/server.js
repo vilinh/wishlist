@@ -29,6 +29,7 @@ app.get("/items", async (req, res) => {
 app.post("/item/new", async (req, res) => {
   const item = new Item({
     itemName: req.body.itemName,
+    quantity: req.body.quantity,
   });
   try {
     await item.save();
@@ -40,9 +41,12 @@ app.post("/item/new", async (req, res) => {
 
 //DELETE ITEM
 app.delete("/item/delete/:id", async (req, res) => {
-  const result = await Item.findByIdAndDelete(req.params.id);
-
-  res.json(result);
+  try {
+    const result = await Item.findByIdAndDelete(req.params.id);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // UPDATE ITEM AS BOUGHT/NOT BOUGHT
