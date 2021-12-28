@@ -52,9 +52,15 @@ export default function Item({ item, setItems }) {
           <div className="item-left">
             <div className="checkbox" onClick={() => buyItem(item._id)}>
               <i className="regular fa-regular fa-circle-check"></i>
-              <span><i className="fa-solid fa-circle-check"></i></span>
+              <span>
+                <i className="fa-solid fa-circle-check"></i>
+              </span>
             </div>
-            <div className="item-name">{item.itemName}</div>
+            <div className="item-name">
+              <a href={item.link} target="_blank">
+                {item.itemName}
+              </a>
+            </div>
           </div>
           <div className="item-right">
             <div className="quantity">
@@ -75,7 +81,7 @@ export default function Item({ item, setItems }) {
           </div>
         </div>
         <div className="image">
-          <img src={item.image} alt="wishlist"/>
+          <img src={item.image} alt="wishlist" />
         </div>
         <div className="category">{item.category}</div>
       </div>

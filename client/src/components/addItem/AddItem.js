@@ -10,6 +10,7 @@ export default function AddItem({
   const [image, setImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [newItem, setNewItem] = useState("");
+  const [link, setLink] = useState("");
 
   const addItem = async () => {
     const data = await fetch(API_BASE + "/items/new", {
@@ -21,6 +22,7 @@ export default function AddItem({
         itemName: newItem,
         quantity: quantity,
         image: image,
+        link: link,
       }),
     }).then((res) => res.json());
 
@@ -37,7 +39,7 @@ export default function AddItem({
       <div className="content">
         <h3>Add Item</h3>
         <div className="input-group">
-          <label for="itemname">Item: </label>
+          <label for="itemname">Item Name: </label>
           <input
             type="text"
             id="itemname"
@@ -58,12 +60,22 @@ export default function AddItem({
           />
         </div>
         <div className="input-group">
+          <label for="link-input">Link: </label>
+          <input
+            type="text"
+            id="link-input"
+            placeholder="Optional link to make it easier for your gifters!"
+            onChange={(e) => setLink(e.target.value)}
+            value={link}
+          />
+        </div>
+        <div className="input-group">
           <label for="image-link">Image: </label>
           <textarea
             id="image-link"
             name="imagelink"
             placeholder="Paste a link to your item image to let your gifters know exactly
-          what you want!"
+          what you're looking for!"
             onChange={(e) => setImage(e.target.value)}
             value={image}
           ></textarea>

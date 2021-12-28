@@ -39,5 +39,8 @@ h4 {
   margin-bottom: 16px;
 }
 
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
