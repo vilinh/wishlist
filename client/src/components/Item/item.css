@@ -1,32 +1,33 @@
 .item {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: var(--light);
   padding: 16px;
   border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.basic {
+  position: relative;
   display: flex;
   align-items: center;
   transition: 0.5s;
   cursor: pointer;
-  margin-bottom: 16px;
   color: var(--dark);
+  justify-content: space-between;
 }
 
 .item .checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 16px;
-  border-radius: 999px;
-  background-color: var(--dark-alt);
+  margin-right: 13px;
   transition: 0.4s;
 }
 
+.item.bought {
+  opacity: 0.8;
+
+}
 .item.bought .checkbox {
-  background-color: var(--primary);
-  background-image: linear-gradient(
-    to bottom,
-    var(--primary),
-    var(--secondary)
-  );
+  color: var(--primary);
 }
 
 .item .checkbox:hover {
@@ -42,10 +43,6 @@
 }
 
 .item .quantity {
-  position: absolute;
-  top: 50%;
-  right: 50px;
-  transform: translateY(-50%);
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -55,11 +52,12 @@
 
 .item .quantity .minus,
 .item .quantity .add {
-    font-size: 15px;;
-    background-color: var(--dark-alt);
-    color: #fff;
-    padding: 5px;
+    font-size: 15px;
+    color: var(--dark-alt);
     border-radius: 999px;
+}
+.item .quantity .minus {
+  font-size: 13px;
 }
 
 .item .quantity .minus:hover,
@@ -68,14 +66,30 @@
 }
 
 .item .delete-item {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-
   font-size: 20px;
   color: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 20px;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.item .category {
+  color: var(--secondary);
+  margin-left: 26px;
+  font-size: 13px;
+  margin-top: 5px;
 }

@@ -48,23 +48,32 @@ export default function Item({ item, setItems }) {
   return (
     <>
       <div className={"item " + (item.bought ? "bought" : "")}>
-        <div className="checkbox" onClick={() => buyItem(item._id)}></div>
-        <div className="item-name">{item.itemName}</div>
-        <div className="quantity">
-          <i
-            className="minus fa-solid fa-minus"
-            onClick={() => decrement(item._id)}
-          ></i>
-          <div className="number">{quantity}</div>
-          <i
-            className="add fa-solid fa-plus"
-            onClick={() => increment(item._id)}
-          ></i>
+        <div className="basic">
+          <div className="item-left">
+            <div className="checkbox" onClick={() => buyItem(item._id)}>
+              <i className="fa-regular fa-circle-check"></i>{" "}
+            </div>
+            <div className="item-name">{item.itemName}</div>
+          </div>
+          <div className="item-right">
+            <div className="quantity">
+              <i
+                className="minus fa-solid fa-minus"
+                onClick={() => decrement(item._id)}
+              ></i>
+              <div className="number">{quantity}</div>
+              <i
+                className="add fa-solid fa-plus"
+                onClick={() => increment(item._id)}
+              ></i>
+            </div>
+            <i
+              className="delete-item fas fa-trash-alt"
+              onClick={() => deleteItem(item._id)}
+            ></i>
+          </div>
         </div>
-        <i
-          className="delete-item fas fa-trash-alt"
-          onClick={() => deleteItem(item._id)}
-        ></i>
+        <div className="category">{item.category}</div>
       </div>
     </>
   );
