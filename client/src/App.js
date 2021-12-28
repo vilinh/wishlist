@@ -7,7 +7,7 @@ const API_BASE = "http://localhost:3001";
 function App() {
   const [items, setItems] = useState([]);
   const [addActive, setAddActive] = useState(false);
-  const [newItem, setNewItem] = useState("");
+
 
   useEffect(() => {
     GetItems();
@@ -33,8 +33,6 @@ function App() {
       {addActive ? (
         <AddItem
           setAddActive={setAddActive}
-          newItem={newItem}
-          setNewItem={setNewItem}
           setItems={setItems}
           items={items}
         />

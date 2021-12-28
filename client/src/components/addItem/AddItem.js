@@ -4,13 +4,12 @@ const API_BASE = "http://localhost:3001";
 
 export default function AddItem({
   setAddActive,
-  setNewItem,
-  newItem,
   setItems,
   items,
 }) {
   const [image, setImage] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [newItem, setNewItem] = useState("");
 
   const addItem = async () => {
     const data = await fetch(API_BASE + "/item/new", {
@@ -42,6 +41,7 @@ export default function AddItem({
           <input
             type="text"
             id="itemname"
+            required
             onChange={(e) => setNewItem(e.target.value)}
             value={newItem}
           />
