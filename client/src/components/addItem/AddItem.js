@@ -12,7 +12,7 @@ export default function AddItem({
   const [newItem, setNewItem] = useState("");
 
   const addItem = async () => {
-    const data = await fetch(API_BASE + "/item/new", {
+    const data = await fetch(API_BASE + "/items/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

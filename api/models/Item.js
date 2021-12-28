@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const ItemSchema = new Schema({
+const ItemSchema = new mongoose.Schema({
     itemName: {
         type: String,
         required: true,
@@ -24,7 +23,7 @@ const ItemSchema = new Schema({
     },
     image: {
         type: String,
-        default: "https://media.dior.com/couture/ecommerce/media/catalog/product/n/L/1627465591_M0446CTZQ_M928_E03_ZH.jpg",
+        default: "",
     }
 })
 

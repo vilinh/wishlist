@@ -7,7 +7,7 @@ export default function Item({ item, setItems }) {
   const [quantity, setQuantity] = useState(item.quantity);
 
   const increment = async (id) => {
-    const data = await fetch(API_BASE + "/item/increment/" + id, {
+    const data = await fetch(API_BASE + "/items/increment/" + id, {
       method: "PUT",
     }).then((res) => res.json());
 
@@ -15,7 +15,7 @@ export default function Item({ item, setItems }) {
   };
 
   const decrement = async (id) => {
-    const data = await fetch(API_BASE + "/item/decrement/" + id, {
+    const data = await fetch(API_BASE + "/items/decrement/" + id, {
       method: "PUT",
     }).then((res) => res.json());
 
@@ -23,7 +23,7 @@ export default function Item({ item, setItems }) {
   };
 
   const buyItem = async (id) => {
-    const data = await fetch(API_BASE + "/item/bought/" + id, {
+    const data = await fetch(API_BASE + "/items/bought/" + id, {
       method: "PUT",
     }).then((res) => res.json());
 
@@ -38,7 +38,7 @@ export default function Item({ item, setItems }) {
   };
 
   const deleteItem = async (id) => {
-    const data = await fetch(API_BASE + "/item/delete/" + id, {
+    const data = await fetch(API_BASE + "/items/delete/" + id, {
       method: "DELETE",
     }).then((res) => res.json());
 
