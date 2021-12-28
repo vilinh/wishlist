@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 const itemRoute = require("./routes/items");
+const categoryRoute = require("./routes/categories");
 
 mongoose
   .connect(
@@ -15,7 +16,7 @@ mongoose
   .then(() => console.log("Connected to DB"))
   .catch(console.error);
 
-
 app.use("/items", itemRoute);
+app.use("/categories", categoryRoute);
 
 app.listen(3001, () => console.log("Server started on port 3001"));
