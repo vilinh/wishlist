@@ -21,6 +21,10 @@ const ItemSchema = new Schema({
     category: {
         type: String,
         default: "Unclassified"
+    },
+    image: {
+        type: String,
+        default: "https://media.dior.com/couture/ecommerce/media/catalog/product/n/L/1627465591_M0446CTZQ_M928_E03_ZH.jpg",
     }
 })
 

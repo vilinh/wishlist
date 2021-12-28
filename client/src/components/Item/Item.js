@@ -73,6 +73,9 @@ export default function Item({ item, setItems }) {
             ></i>
           </div>
         </div>
+        <div className="image">
+          <img src={item.image} alt="wishlist"/>
+        </div>
         <div className="category">{item.category}</div>
       </div>
     </>

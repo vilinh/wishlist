@@ -30,7 +30,8 @@ app.post("/item/new", async (req, res) => {
   const item = new Item({
     itemName: req.body.itemName,
     quantity: req.body.quantity,
-    category: req.body.category
+    category: req.body.category,
+    image: req.body.image
   });
   try {
     await item.save();
