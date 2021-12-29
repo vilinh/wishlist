@@ -85,7 +85,7 @@ export default function Item({ item, setItems }) {
             <img src={item.image} alt="wishlist" />
           </div>
           <div className="notes">
-            <h3>Notes: </h3>
+            {item.notes ? (<h3>Notes: </h3>):""}
             {item.notes}</div>
         </div>
         <div className="category">{item.category}</div>
