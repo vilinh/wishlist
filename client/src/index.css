@@ -36,11 +36,33 @@ h4 {
   color:var(--light-alt);
   text-transform: uppercase;
   font-weight: 400;
-  margin-bottom: 16px;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.main-nav {
+  color: var(--light-alt);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  justify-content: space-between;
+}
+
+.main-nav .filter {
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 2px;
+}
+.main-nav span {
+  cursor: pointer;
+}
+.main-nav.no-show span {
+  display: none;
+}
+.main-nav.show .filter {
+  display: none;
 }
 

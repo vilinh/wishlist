@@ -9,7 +9,8 @@ function App() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
   const [addActive, setAddActive] = useState(false);
-
+  const [filterActive, setFilterActive] = useState(false);
+  console.log(filterActive);
   useEffect(() => {
     GetItems();
     GetCategories();
@@ -29,14 +30,23 @@ function App() {
       .catch((err) => console.error("Error ", err));
   };
 
-  console.log(categories);
-
-
   return (
     <div>
       <Navbar />
       <div className="App">
-        <h4>Your WishList</h4>
+        <div className={`main-nav ${filterActive ? "show":"no-show"}`}>
+          <h4>Your WishList</h4>
+          <i
+            className="filter fa-solid fa-arrow-down-short-wide"
+            onClick={() => setFilterActive(!filterActive)}
+          ></i>
+          <span>
+            <i
+              className="fa-solid fa-arrow-up-short-wide"
+              onClick={() => setFilterActive(!filterActive)}
+            ></i>
+          </span>
+        </div>
         <div className="wishlist">
           {items.map((item) => (
             <Item
