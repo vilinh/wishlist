@@ -131,3 +131,7 @@
 .item .notes {
   color: var(--dark);
 }
+
+.item .category {
+  cursor: pointer;
+}

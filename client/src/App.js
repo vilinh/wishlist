@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AddItemButton from "./components/addItem/AddItemButton";
 import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
+import AddCategory from "./components/addCategory/AddCategory";
 const API_BASE = "http://localhost:3001";
 
 function App() {
@@ -34,18 +35,21 @@ function App() {
     <div>
       <Navbar />
       <div className="App">
-        <div className={`main-nav ${filterActive ? "show":"no-show"}`}>
+        <div className={`main-nav ${filterActive ? "show" : "no-show"}`}>
           <h4>Your WishList</h4>
-          <i
-            className="filter fa-solid fa-arrow-down-short-wide"
-            onClick={() => setFilterActive(!filterActive)}
-          ></i>
-          <span>
+          <div className="icons">
+            <i class="add-category fa-solid fa-plus"></i>
             <i
-              className="fa-solid fa-arrow-up-short-wide"
+              className="filter fa-solid fa-arrow-down-short-wide"
               onClick={() => setFilterActive(!filterActive)}
             ></i>
-          </span>
+            <span>
+              <i
+                className="fa-solid fa-arrow-up-short-wide"
+                onClick={() => setFilterActive(!filterActive)}
+              ></i>
+            </span>
+          </div>
         </div>
         <div className="wishlist">
           {items.map((item) => (
@@ -69,6 +73,8 @@ function App() {
           ""
         )}
       </div>
+      <AddCategory categories={categories}
+      setCategories={setCategories} />
     </div>
   );
 }

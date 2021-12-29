@@ -51,13 +51,17 @@ a {
   justify-content: space-between;
 }
 
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
 .main-nav .filter {
   cursor: pointer;
   padding: 3px;
   border-radius: 2px;
-}
-.main-nav span {
-  cursor: pointer;
 }
 .main-nav.no-show span {
   display: none;
