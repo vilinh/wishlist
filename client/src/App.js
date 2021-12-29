@@ -11,6 +11,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [addActive, setAddActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
+  const [addCatButton, setAddCatButton] = useState(false);
 
   useEffect(() => {
     GetItems();
@@ -38,7 +39,10 @@ function App() {
         <div className={`main-nav ${filterActive ? "show" : "no-show"}`}>
           <h4>Your WishList</h4>
           <div className="icons">
-            <i class="add-category fa-solid fa-plus"></i>
+            <i
+              class="add-category fa-solid fa-plus"
+              onClick={() => setAddCatButton(!addCatButton)}
+            ></i>
             <i
               className="filter fa-solid fa-arrow-down-short-wide"
               onClick={() => setFilterActive(!filterActive)}
@@ -73,8 +77,16 @@ function App() {
           ""
         )}
       </div>
-      <AddCategory categories={categories}
-      setCategories={setCategories} />
+      {addCatButton ? (
+        <AddCategory
+          categories={categories}
+          setCategories={setCategories}
+          addCatButton={addCatButton}
+          setAddCatButton={setAddCatButton}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
