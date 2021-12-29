@@ -11,6 +11,7 @@ export default function AddItem({
   const [quantity, setQuantity] = useState(1);
   const [newItem, setNewItem] = useState("");
   const [link, setLink] = useState("");
+  const [notes, setNotes] = useState("");
 
   const addItem = async () => {
     const data = await fetch(API_BASE + "/items/new", {
@@ -23,6 +24,7 @@ export default function AddItem({
         quantity: quantity,
         image: image,
         link: link,
+        notes: notes,
       }),
     }).then((res) => res.json());
 
@@ -78,6 +80,15 @@ export default function AddItem({
           what you're looking for!"
             onChange={(e) => setImage(e.target.value)}
             value={image}
+          ></textarea>
+        </div>
+        <div className="input-group">
+          <label for="notes-input">Notes: </label>
+          <textarea
+            id="notes-input"
+            placeholder="Any notes you want to add/specify."
+            onChange={(e) => setNotes(e.target.value)}
+            value={notes}
           ></textarea>
         </div>
         <div className="createbutton" onClick={addItem}>

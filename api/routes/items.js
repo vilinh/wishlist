@@ -20,6 +20,7 @@ router.post("/new", async (req, res) => {
     category: req.body.category,
     image: req.body.image,
     link: req.body.link,
+    notes: req.body.notes
   });
   try {
     await item.save();

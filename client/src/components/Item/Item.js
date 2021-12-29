@@ -80,8 +80,13 @@ export default function Item({ item, setItems }) {
             ></i>
           </div>
         </div>
-        <div className="image">
-          <img src={item.image} alt="wishlist" />
+        <div className="description">
+          <div className="image">
+            <img src={item.image} alt="wishlist" />
+          </div>
+          <div className="notes">
+            <h3>Notes: </h3>
+            {item.notes}</div>
         </div>
         <div className="category">{item.category}</div>
       </div>

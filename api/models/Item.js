@@ -27,6 +27,9 @@ const ItemSchema = new mongoose.Schema({
     },
     link: {
         type: String,
+    }, 
+    notes: {
+        type: String,
     }
 })
 
