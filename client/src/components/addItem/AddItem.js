@@ -91,6 +91,10 @@ export default function AddItem({
             value={notes}
           ></textarea>
         </div>
+        <div className="input-group">
+        <label for="category-select">Category: </label>
+          
+        </div>
         <div className="createbutton" onClick={addItem}>
           Add
         </div>
