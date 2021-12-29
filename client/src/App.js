@@ -10,7 +10,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [addActive, setAddActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
-  console.log(filterActive);
+
   useEffect(() => {
     GetItems();
     GetCategories();

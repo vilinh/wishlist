@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import { React, useState, Component } from "react";
+import CreatableSelect from "react-select/creatable";
 const API_BASE = "http://localhost:3001";
 
 export default function AddItem({ setAddActive, setItems, items, categories }) {
@@ -22,7 +22,7 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
         image: image,
         link: link,
         notes: notes,
-        category: selectedCat
+        category: selectedCat,
       }),
     }).then((res) => res.json());
 
@@ -39,7 +39,7 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
       <div className="content">
         <h3>Add Item</h3>
         <div className="input-group">
-          <label for="itemname">Item Name: </label>
+          <label htmlFor="itemname">Item Name: </label>
           <input
             type="text"
             id="itemname"
@@ -49,7 +49,7 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
           />
         </div>
         <div className="input-group">
-          <label for="quantity-input">Amount: </label>
+          <label htmlFor="quantity-input">Amount: </label>
           <input
             type="number"
             id="quantity-input"
@@ -60,28 +60,28 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
           />
         </div>
         <div className="input-group">
-          <label for="link-input">Link: </label>
+          <label htmlFor="link-input">Link: </label>
           <input
             type="text"
             id="link-input"
-            placeholder="Optional link to make it easier for your gifters!"
+            placeholder="Optional link to make it easier htmlFor your gifters!"
             onChange={(e) => setLink(e.target.value)}
             value={link}
           />
         </div>
         <div className="input-group">
-          <label for="image-link">Image: </label>
+          <label htmlFor="image-link">Image: </label>
           <textarea
             id="image-link"
             name="imagelink"
             placeholder="Paste a link to your item image to let your gifters know exactly
-          what you're looking for!"
+          what you're looking htmlFor!"
             onChange={(e) => setImage(e.target.value)}
             value={image}
           ></textarea>
         </div>
         <div className="input-group">
-          <label for="notes-input">Notes: </label>
+          <label htmlFor="notes-input">Notes: </label>
           <textarea
             id="notes-input"
             placeholder="Any notes you want to add/specify."
@@ -89,9 +89,10 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
             value={notes}
           ></textarea>
         </div>
-        <div className="input-group">
-          <label for="category-select">Category: </label>
+        <div className="input-group category">
+          <label htmlFor="category-select">Category: </label>
           <select
+            id="category-select"
             value={selectedCat}
             onChange={(e) => setSelectedCat(e.target.value)}
           >
