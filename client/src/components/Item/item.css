@@ -6,6 +6,7 @@
   border-radius: 5px;
   margin-bottom: 16px;
   transition: 0.4s;
+  
 }
 
 .basic {
@@ -116,10 +117,12 @@
 .item .description {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 32px;
+  gap: 30px;
 }
 
 .item .image img {
-  margin: 20px 32px;
   width: 200px;
   border-radius: 5px;
   box-shadow: 0px 2px 5px var(--primary);

@@ -7,10 +7,12 @@ const API_BASE = "http://localhost:3001";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [addActive, setAddActive] = useState(false);
 
   useEffect(() => {
     GetItems();
+    GetCategories();
   }, []);
 
   const GetItems = () => {
@@ -19,6 +21,16 @@ function App() {
       .then((data) => setItems(data))
       .catch((err) => console.error("Error ", err));
   };
+
+  const GetCategories = () => {
+    fetch(API_BASE + "/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error("Error ", err));
+  };
+
+  console.log(categories);
+
 
   return (
     <div>
@@ -41,6 +53,7 @@ function App() {
             setAddActive={setAddActive}
             setItems={setItems}
             items={items}
+            categories={categories}
           />
         ) : (
           ""

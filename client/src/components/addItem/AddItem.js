@@ -2,16 +2,13 @@ import React from "react";
 import { useState } from "react";
 const API_BASE = "http://localhost:3001";
 
-export default function AddItem({
-  setAddActive,
-  setItems,
-  items,
-}) {
+export default function AddItem({ setAddActive, setItems, items, categories }) {
   const [image, setImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [newItem, setNewItem] = useState("");
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
+  const [selectedCat, setSelectedCat] = useState(categories[0].name);
 
   const addItem = async () => {
     const data = await fetch(API_BASE + "/items/new", {
@@ -25,6 +22,7 @@ export default function AddItem({
         image: image,
         link: link,
         notes: notes,
+        category: selectedCat
       }),
     }).then((res) => res.json());
 
@@ -92,8 +90,17 @@ export default function AddItem({
           ></textarea>
         </div>
         <div className="input-group">
-        <label for="category-select">Category: </label>
-          
+          <label for="category-select">Category: </label>
+          <select
+            value={selectedCat}
+            onChange={(e) => setSelectedCat(e.target.value)}
+          >
+            {categories.map((category) => (
+              <option key={category._id} value={category.name}>
+                {category.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="createbutton" onClick={addItem}>
           Add
