@@ -56,7 +56,15 @@ function App() {
             </span>
           </div>
         </div>
-        {filterActive ? (<Categories categories={categories}/>):('')}
+        {filterActive ? (
+          <Categories
+            categories={categories}
+            setItems={setItems}
+            items={items}
+          />
+        ) : (
+          ""
+        )}
         <div className="wishlist">
           {items.map((item) => (
             <Item
