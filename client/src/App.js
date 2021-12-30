@@ -4,6 +4,7 @@ import AddItemButton from "./components/addItem/AddItemButton";
 import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
 import AddCategory from "./components/addCategory/AddCategory";
+import Categories from "./components/Categories/Categories";
 const API_BASE = "http://localhost:3001";
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
           <h4>Your WishList</h4>
           <div className="icons">
             <i
-              class="add-category fa-solid fa-plus"
+              className="add-category fa-solid fa-plus"
               onClick={() => setAddCatButton(!addCatButton)}
             ></i>
             <i
@@ -55,6 +56,7 @@ function App() {
             </span>
           </div>
         </div>
+        {filterActive ? (<Categories categories={categories}/>):('')}
         <div className="wishlist">
           {items.map((item) => (
             <Item
