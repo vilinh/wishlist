@@ -5,6 +5,7 @@ import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
 import AddCategory from "./components/addCategory/AddCategory";
 import Categories from "./components/Categories/Categories";
+import Wishlist from "./pages/Wishlist";
 const API_BASE = "http://localhost:3001";
 
 function App() {
@@ -13,12 +14,19 @@ function App() {
   const [addActive, setAddActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
   const [addCatButton, setAddCatButton] = useState(false);
+  let staticItems = [];
 
   useEffect(() => {
     GetItems();
     GetCategories();
   }, []);
 
+  const GetCategories = () => {
+    fetch(API_BASE + "/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error("Error ", err));
+  };
   const GetItems = () => {
     fetch(API_BASE + "/items")
       .then((res) => res.json())
@@ -26,10 +34,10 @@ function App() {
       .catch((err) => console.error("Error ", err));
   };
 
-  const GetCategories = () => {
-    fetch(API_BASE + "/categories")
+  const handleFilter = (cat) => {
+    fetch(API_BASE + `/items/${cat}`)
       .then((res) => res.json())
-      .then((data) => setCategories(data))
+      .then((data) => setItems(data))
       .catch((err) => console.error("Error ", err));
   };
 
@@ -59,22 +67,12 @@ function App() {
         {filterActive ? (
           <Categories
             categories={categories}
-            setItems={setItems}
-            items={items}
+            handleFilter={handleFilter}
           />
         ) : (
           ""
         )}
-        <div className="wishlist">
-          {items.map((item) => (
-            <Item
-              item={item}
-              key={item._id}
-              setItems={setItems}
-              items={items}
-            />
-          ))}
-        </div>
+        <Wishlist items={items}/>
         <AddItemButton setAddActive={setAddActive} />
         {addActive ? (
           <AddItem

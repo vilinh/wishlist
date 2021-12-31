@@ -12,6 +12,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET ITEMS BY CATEGORY
+router.get("/:cat", async (req, res) => {
+  try {
+    const cat = req.params.cat
+    const items = await Item.find({category: cat});
+    res.json(items);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // ADD NEW ITEM
 router.post("/new", async (req, res) => {
   const item = new Item({
