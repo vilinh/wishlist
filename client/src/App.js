@@ -1,11 +1,11 @@
-import Item from "./components/Item/Item";
 import { useState, useEffect } from "react";
+import Item from "./components/Item/Item";
 import AddItemButton from "./components/addItem/AddItemButton";
 import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
 import AddCategory from "./components/addCategory/AddCategory";
 import Categories from "./components/Categories/Categories";
-import Wishlist from "./pages/Wishlist";
+import Filters from "./components/Filters/Filters";
 const API_BASE = "http://localhost:3001";
 
 function App() {
@@ -14,7 +14,6 @@ function App() {
   const [addActive, setAddActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
   const [addCatButton, setAddCatButton] = useState(false);
-  let staticItems = [];
 
   useEffect(() => {
     GetItems();
@@ -53,7 +52,7 @@ function App() {
               onClick={() => setAddCatButton(!addCatButton)}
             ></i>
             <i
-              className="filter fa-solid fa-arrow-down-short-wide"
+              className="app-filter fa-solid fa-arrow-down-short-wide"
               onClick={() => setFilterActive(!filterActive)}
             ></i>
             <span>
@@ -68,11 +67,16 @@ function App() {
           <Categories
             categories={categories}
             handleFilter={handleFilter}
+            GetItems={GetItems}
           />
         ) : (
           ""
         )}
-        <Wishlist items={items}/>
+        <div className="wishlist">
+      {items.map((item) => (
+        <Item item={item} key={item._id} items={items} />
+      ))}
+    </div>
         <AddItemButton setAddActive={setAddActive} />
         {addActive ? (
           <AddItem

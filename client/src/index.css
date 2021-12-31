@@ -58,7 +58,7 @@ a {
   cursor: pointer;
 }
 
-.main-nav .filter {
+.main-nav .app-filter {
   cursor: pointer;
   padding: 3px;
   border-radius: 2px;
@@ -66,7 +66,7 @@ a {
 .main-nav.no-show span {
   display: none;
 }
-.main-nav.show .filter {
+.main-nav.show .app-filter {
   display: none;
 }
 
