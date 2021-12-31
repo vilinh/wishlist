@@ -1,0 +1,23 @@
+.filter-bar {
+  display: flex;
+  gap: 5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.filter {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 2px;
+  color: #fff;
+  border: solid 1px #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.filter:hover {
+  background-color: #fff;
+  color: var(--primary);
+}
+
