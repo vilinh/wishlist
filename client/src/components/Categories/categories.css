@@ -1,0 +1,18 @@
+.categories {
+  background-color: var(--dark-alt);
+  color: var(--light);
+  padding: 10px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.categories h3 {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-size: 15px;
+}
+
+.categories h3:hover {
+  border: 1px solid var(--light-alt);
+}
