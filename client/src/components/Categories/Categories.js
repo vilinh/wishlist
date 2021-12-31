@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./categories.css";
 import Cat from "./Cat";
 

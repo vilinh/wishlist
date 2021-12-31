@@ -64,7 +64,7 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
           <input
             type="text"
             id="link-input"
-            placeholder="Optional link to make it easier htmlFor your gifters!"
+            placeholder="Optional link to make it easier for your gifters!"
             onChange={(e) => setLink(e.target.value)}
             value={link}
           />
