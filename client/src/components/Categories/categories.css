@@ -17,9 +17,9 @@
   border: 1px solid var(--light-alt);
 }
 
-.catx {
-  display: none;
+.cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.category .catx:hover {
-  color: var(--light-alt);
-}
+

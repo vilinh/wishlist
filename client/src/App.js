@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     GetItems();
     GetCategories();
-  }, [items]);
+  }, []);
 
   const GetCategories = () => {
     fetch(API_BASE + "/categories")
