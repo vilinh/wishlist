@@ -67,13 +67,15 @@ function App() {
             categories={categories}
             handleFilter={handleFilter}
             GetItems={GetItems}
+            setCategories={setCategories}
+            categories={categories}
           />
         ) : (
           ""
         )}
         <div className="wishlist">
       {items.map((item) => (
-        <Item item={item} key={item._id} items={items} />
+        <Item item={item} key={item._id} items={items} setItems={setItems}/>
       ))}
     </div>
         <AddItemButton setAddActive={setAddActive} />
