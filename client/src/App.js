@@ -5,7 +5,6 @@ import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
 import AddCategory from "./components/addCategory/AddCategory";
 import Categories from "./components/Categories/Categories";
-import Filters from "./components/Filters/Filters";
 const API_BASE = "http://localhost:3001";
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
   useEffect(() => {
     GetItems();
     GetCategories();
-  }, []);
+  }, [items]);
 
   const GetCategories = () => {
     fetch(API_BASE + "/categories")
@@ -84,6 +83,7 @@ function App() {
             setItems={setItems}
             items={items}
             categories={categories}
+            handleFilter={handleFilter}
           />
         ) : (
           ""

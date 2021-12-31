@@ -16,3 +16,10 @@
 .categories h3:hover {
   border: 1px solid var(--light-alt);
 }
+
+.catx {
+  display: none;
+}
+.category .catx:hover {
+  color: var(--light-alt);
+}

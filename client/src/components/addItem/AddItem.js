@@ -75,7 +75,7 @@ export default function AddItem({ setAddActive, setItems, items, categories }) {
             id="image-link"
             name="imagelink"
             placeholder="Paste a link to your item image to let your gifters know exactly
-          what you're looking htmlFor!"
+          what you're looking for!"
             onChange={(e) => setImage(e.target.value)}
             value={image}
           ></textarea>
