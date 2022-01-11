@@ -5,12 +5,10 @@ import AddItem from "./components/addItem/AddItem";
 import Navbar from "./components/navbar/Navbar";
 import AddCategory from "./components/addCategory/AddCategory";
 import Categories from "./components/Categories/Categories";
-import { GlobalContext, GlobalProvider } from "./context/GlobalState";
 const API_BASE = "http://localhost:3001";
 
 function App() {
   const [items, setItems] = useState([]);
-  const { itemlist } = useContext(GlobalContext);
   const [categories, setCategories] = useState([]);
   const [addActive, setAddActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
@@ -42,7 +40,6 @@ function App() {
   };
 
   return (
-    <GlobalProvider>
       <div>
         <Navbar />
         <div className="App">
@@ -110,7 +107,6 @@ function App() {
           ""
         )}
       </div>
-    </GlobalProvider>
   );
 }
 
