@@ -42,11 +42,42 @@ router.post("/register", async (req, res) => {
 
     //wait until user saved to database
     const savedUser = await newUser.save();
-    return res.json(savedUser);
+    const userToReturn = { ...savedUser._doc };
+    delete userToReturn.password;
+    return res.json(userToReturn);
   } catch (err) {
     console.log(err);
 
     res.status(500).send(err.message);
+  }
+});
+
+// @route POST /auth/login
+// @desc Login user & return access token
+// @access Public
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      email: new RegExp("^" + req.body.email + "$", "i"),
+    });
+
+    if (!user) {
+      return res.status(400).json({ error: "There was a problem logging in." });
+    }
+
+    const passwordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+
+    if (!passwordMatch) {
+      return res.status(400).json({ error: "There was a problem logging in." });
+    }
+
+    
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send(err.message);
   }
 });
 
