@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 const itemRoute = require("./routes/items");
 const categoryRoute = require("./routes/categories");
@@ -20,5 +21,6 @@ mongoose
 app.use("/items", itemRoute);
 app.use("/categories", categoryRoute);
 app.use("/auth", authRoute);
+
 
 app.listen(3001, () => console.log("Server started on port 3001"));
