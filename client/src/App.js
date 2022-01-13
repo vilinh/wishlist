@@ -1,14 +1,12 @@
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/Home";
 import { GlobalProvider } from "./context/GlobalContext";
+import Layout from "./pages/Layout";
 const API_BASE = "http://localhost:3001";
 
 function App() {
   return (
     <div>
       <GlobalProvider>
-        <Navbar />
-        <Home />
+        <Layout />
       </GlobalProvider>
     </div>
   );
